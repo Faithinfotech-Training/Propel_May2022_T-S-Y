@@ -43,8 +43,8 @@ namespace TSY_Clinic_Management_System.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=SAJNA-NAZIR\\SQLEXPRESS;Database= CLINIC_DB;Trusted_Connection=True;");
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                //optionsBuilder.UseSqlServer("Server=SAJNA-NAZIR\\SQLEXPRESS;Database= CLINIC_DB;Trusted_Connection=True;");
             }
         }
 
