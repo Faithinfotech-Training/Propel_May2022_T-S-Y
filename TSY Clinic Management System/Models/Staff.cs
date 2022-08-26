@@ -29,9 +29,11 @@ namespace TSY_Clinic_Management_System.Models
         public bool IsActive { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
+        public int? RoleId { get; set; }
 
         public virtual BloodGroup BloodGroup { get; set; }
         public virtual Gender Gender { get; set; }
+        public virtual Role Role { get; set; }
         public virtual ICollection<Doctor> Doctor { get; set; }
         public virtual ICollection<Patient> Patient { get; set; }
         public virtual ICollection<Users> Users { get; set; }
