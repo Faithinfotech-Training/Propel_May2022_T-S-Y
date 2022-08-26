@@ -11,12 +11,14 @@ namespace TSY_Clinic_Management_System.Models
     {
         public Role()
         {
+            Staff = new HashSet<Staff>();
             Users = new HashSet<Users>();
         }
 
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
+        public virtual ICollection<Staff> Staff { get; set; }
         public virtual ICollection<Users> Users { get; set; }
     }
 }
