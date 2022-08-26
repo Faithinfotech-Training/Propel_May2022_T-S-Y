@@ -72,17 +72,17 @@ namespace TSY_Clinic_Management_System.Models
                     .WithMany(p => p.Appointment)
                     .HasForeignKey(d => d.DepartmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Appointme__Depar__1332DBDC");
+                    .HasConstraintName("FK__Appointme__Depar__534D60F1");
 
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.Appointment)
                     .HasForeignKey(d => d.DoctorId)
-                    .HasConstraintName("FK__Appointme__Docto__14270015");
+                    .HasConstraintName("FK__Appointme__Docto__5535A963");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Appointment)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__Appointme__Patie__151B244E");
+                    .HasConstraintName("FK__Appointme__Patie__571DF1D5");
             });
 
             modelBuilder.Entity<BillTable>(entity =>
@@ -156,19 +156,19 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Department)
                     .WithMany(p => p.Doctor)
                     .HasForeignKey(d => d.DepartmentId)
-                    .HasConstraintName("FK__Doctor__Departme__160F4887");
+                    .HasConstraintName("FK__Doctor__Departme__440B1D61");
 
                 entity.HasOne(d => d.Specialization)
                     .WithMany(p => p.Doctor)
                     .HasForeignKey(d => d.SpecializationId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Doctor__Speciali__17036CC0");
+                    .HasConstraintName("FK__Doctor__Speciali__44FF419A");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Doctor)
                     .HasForeignKey(d => d.StaffId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Doctor__Staff_Id__17F790F9");
+                    .HasConstraintName("FK__Doctor__Staff_Id__45F365D3");
             });
 
             modelBuilder.Entity<Gender>(entity =>
@@ -290,7 +290,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Medicineprescription)
                     .WithMany(p => p.MedicineView)
                     .HasForeignKey(d => d.MedicineprescriptionId)
-                    .HasConstraintName("FK__Medicine___Medic__18EBB532");
+                    .HasConstraintName("FK__Medicine___Medic__2DE6D218");
             });
 
             modelBuilder.Entity<Medicineprescription>(entity =>
@@ -324,27 +324,27 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Doctor)
                     .WithMany(p => p.Medicineprescription)
                     .HasForeignKey(d => d.DoctorId)
-                    .HasConstraintName("FK__Medicinep__Docto__19DFD96B");
+                    .HasConstraintName("FK__Medicinep__Docto__236943A5");
 
                 entity.HasOne(d => d.Medicine)
                     .WithMany(p => p.Medicineprescription)
                     .HasForeignKey(d => d.MedicineId)
-                    .HasConstraintName("FK__Medicinep__Medic__1AD3FDA4");
+                    .HasConstraintName("FK__Medicinep__Medic__1DB06A4F");
 
                 entity.HasOne(d => d.MedicineTiming)
                     .WithMany(p => p.Medicineprescription)
                     .HasForeignKey(d => d.MedicineTimingId)
-                    .HasConstraintName("FK__Medicinep__Medic__1BC821DD");
+                    .HasConstraintName("FK__Medicinep__Medic__25518C17");
 
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.Medicineprescription)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__Medicinep__Patie__1CBC4616");
+                    .HasConstraintName("FK__Medicinep__Patie__2180FB33");
 
                 entity.HasOne(d => d.Prescription)
                     .WithMany(p => p.Medicineprescription)
                     .HasForeignKey(d => d.PrescriptionId)
-                    .HasConstraintName("FK__Medicinep__Presc__1DB06A4F");
+                    .HasConstraintName("FK__Medicinep__Presc__1F98B2C1");
             });
 
             modelBuilder.Entity<Patient>(entity =>
@@ -394,17 +394,17 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.BloodGroup)
                     .WithMany(p => p.Patient)
                     .HasForeignKey(d => d.BloodGroupId)
-                    .HasConstraintName("FK__Patient__Blood_g__1EA48E88");
+                    .HasConstraintName("FK__Patient__Blood_g__4BAC3F29");
 
                 entity.HasOne(d => d.Gender)
                     .WithMany(p => p.Patient)
                     .HasForeignKey(d => d.GenderId)
-                    .HasConstraintName("FK__Patient__Gender___1F98B2C1");
+                    .HasConstraintName("FK__Patient__Gender___4F7CD00D");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Patient)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK__Patient__Staff_I__208CD6FA");
+                    .HasConstraintName("FK__Patient__Staff_I__49C3F6B7");
             });
 
             modelBuilder.Entity<Prescription>(entity =>
@@ -431,7 +431,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Appointment)
                     .WithMany(p => p.Prescription)
                     .HasForeignKey(d => d.AppointmentId)
-                    .HasConstraintName("FK__Prescript__Appoi__2180FB33");
+                    .HasConstraintName("FK__Prescript__Appoi__66603565");
             });
 
             modelBuilder.Entity<ReportNote>(entity =>
@@ -472,7 +472,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Prescription)
                     .WithMany(p => p.ReportNote)
                     .HasForeignKey(d => d.PrescriptionId)
-                    .HasConstraintName("FK__ReportNot__Presc__22751F6C");
+                    .HasConstraintName("FK__ReportNot__Presc__7E37BEF6");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -502,7 +502,7 @@ namespace TSY_Clinic_Management_System.Models
                     .WithMany(p => p.Specialization)
                     .HasForeignKey(d => d.DepartmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Specializ__Depar__236943A5");
+                    .HasConstraintName("FK__Specializ__Depar__403A8C7D");
             });
 
             modelBuilder.Entity<Staff>(entity =>
@@ -563,7 +563,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.BloodGroup)
                     .WithMany(p => p.Staff)
                     .HasForeignKey(d => d.BloodGroupId)
-                    .HasConstraintName("FK__Staff__Blood_gro__245D67DE");
+                    .HasConstraintName("FK__Staff__Blood_gro__31EC6D26");
 
                 entity.HasOne(d => d.Gender)
                     .WithMany(p => p.Staff)
@@ -620,7 +620,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Testprescription)
                     .WithMany(p => p.TestView)
                     .HasForeignKey(d => d.TestprescriptionId)
-                    .HasConstraintName("FK__Test_view__Testp__2645B050");
+                    .HasConstraintName("FK__Test_view__Testp__18EBB532");
             });
 
             modelBuilder.Entity<Testprescription>(entity =>
@@ -644,12 +644,12 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Prescription)
                     .WithMany(p => p.Testprescription)
                     .HasForeignKey(d => d.PrescriptionId)
-                    .HasConstraintName("FK__Testpresc__Presc__2739D489");
+                    .HasConstraintName("FK__Testpresc__Presc__0B91BA14");
 
                 entity.HasOne(d => d.Test)
                     .WithMany(p => p.Testprescription)
                     .HasForeignKey(d => d.TestId)
-                    .HasConstraintName("FK__Testpresc__Test___282DF8C2");
+                    .HasConstraintName("FK__Testpresc__Test___0D7A0286");
             });
 
             modelBuilder.Entity<Users>(entity =>
@@ -676,12 +676,12 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__Users__Role_Id__29221CFB");
+                    .HasConstraintName("FK__Users__Role_Id__398D8EEE");
 
                 entity.HasOne(d => d.Staff)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.StaffId)
-                    .HasConstraintName("FK__Users__Staff_Id__2A164134");
+                    .HasConstraintName("FK__Users__Staff_Id__3B75D760");
             });
 
             OnModelCreatingPartial(modelBuilder);
