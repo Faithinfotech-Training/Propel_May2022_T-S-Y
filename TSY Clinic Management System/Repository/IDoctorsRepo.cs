@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CMSByTeamJava.ViewModel;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TSY_Clinic_Management_System.Models;
@@ -29,9 +30,34 @@ namespace TSY_Clinic_Management_System.Repository
 
         #endregion
 
+        #region lab prescribed
+
+        public Task<ActionResult<IEnumerable<Testprescription>>> Getthelabprescription();
+        public Task<ActionResult<Testprescription>> Postthelabprescription(Testprescription Testprescription);
+
+        #endregion
+
+        #region DiagnoseHistory VM
+
+        public Task<ActionResult<IEnumerable<DoctorDiagnoseHistoryVM>>> GetDiagnosehistoryViewModel(int pid);
+
+        #endregion
+
+        #region MedicineHistory VM
+
+        public Task<ActionResult<IEnumerable<DoctorMedicineHistoryVMcs>>> GetMedicineHistoryViewModel(int patid);
+
+        #endregion
+
+        #region labtestHistory VM
+
+        public Task<ActionResult<IEnumerable<DoctorLabTestPresHistoryVM>>> GetLabtestprescribedViewModel(int patid);
+
+        #endregion
+
         #region lab test view
 
-        public Task<ActionResult<IEnumerable<DoctorsLabReportViewModel>>> GetLabViewModel();
+        public Task<ActionResult<IEnumerable<DoctorsLabReportViewModel>>> GetLabViewModel(int patitentId);
 
         #endregion
     }

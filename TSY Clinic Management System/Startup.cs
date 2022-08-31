@@ -35,6 +35,7 @@ namespace TSY_Clinic_Management_System
             options.UseSqlServer(Configuration.GetConnectionString("DevelopConnection")));
 
             services.AddScoped<IDoctorsRepo, DoctorsRepo>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
 
             services.AddControllers().AddNewtonsoftJson(
                 options =>
@@ -46,6 +47,8 @@ namespace TSY_Clinic_Management_System
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 }
                 );
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +58,10 @@ namespace TSY_Clinic_Management_System
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(x => x
+             .AllowAnyOrigin()
+             .AllowAnyMethod()
+             .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

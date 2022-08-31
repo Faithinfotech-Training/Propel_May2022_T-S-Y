@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMSByTeamJava.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -25,8 +26,8 @@ namespace TSY_Clinic_Management_System.Controllers
 
         #region Get Appointment List for docotor
 
-        // GET: api/Doctors/Dashboard
-        [HttpGet("Dashboard")]
+        // GET: api/Doctors/Dashboard/{staffid}
+        [HttpGet("Dashboard/{staffid}")]
         public async Task<ActionResult<IEnumerable<GetAppointedPatientsViewmodel>>> GetAppointedPatients(int staffid)
         {
 
@@ -79,12 +80,13 @@ namespace TSY_Clinic_Management_System.Controllers
 
         #endregion
 
+
         #region lab view
 
-        [HttpGet("labview")]
-        public async Task<ActionResult<IEnumerable<DoctorsLabReportViewModel>>> GetLabViewModel()
+        [HttpGet("Labreport/{patientid}")]
+        public async Task<ActionResult<IEnumerable<DoctorsLabReportViewModel>>> GetLabViewModel(int patitentId)
         {
-            return await _repository.GetLabViewModel();
+            return await _repository.GetLabViewModel(patitentId);
         }
 
         #endregion
@@ -100,10 +102,11 @@ namespace TSY_Clinic_Management_System.Controllers
             return await _repository.GettheMedicineprescription();
         }
 
+        
         // POST: api/Medicineprescriptions
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost("Medicineprescriptions")]
+        [HttpPost("AddMedicineprescriptions")]
         public async Task<ActionResult<Medicineprescription>> PostMedicineprescription(Medicineprescription medicineprescription)
         {
             if (ModelState.IsValid)
@@ -123,6 +126,79 @@ namespace TSY_Clinic_Management_System.Controllers
             }
             return BadRequest();
         }
+        #endregion
+
+
+        #region Lab test prescription
+
+        // GET: api/Medicineprescriptions
+        [HttpGet("preslab")]
+        public async Task<ActionResult<IEnumerable<Testprescription>>> Getthelabprescription()
+        {
+            return await _repository.Getthelabprescription();
+        }
+
+        // POST: api/Medicineprescriptions
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [HttpPost("preslab")]
+        public async Task<ActionResult<Testprescription>> Postthelabprescription(Testprescription Testprescription)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var pres = await _repository.Postthelabprescription(Testprescription);
+                // return Ok(newEmployeeId);
+                if (pres != null)
+                {
+                    return pres;
+                }
+                else
+                {
+
+                }
+                return NotFound();
+            }
+            return BadRequest();
+        }
+
+
+
+        #endregion
+
+
+        #region Diagnose history view 
+
+        [HttpGet("DiaHis/{id}")]
+        public async Task<ActionResult<IEnumerable<DoctorDiagnoseHistoryVM>>> GetDiagnosehistory(int id)
+        {
+
+            return await _repository.GetDiagnosehistoryViewModel(id);
+
+        }
+
+        #endregion
+
+
+        #region Medicine prescription history view
+
+        [HttpGet("MedHis/{patid}")]
+        public async Task<ActionResult<IEnumerable<DoctorMedicineHistoryVMcs>>> GetMedicineHistoryViewModel(int patid)
+        {
+            return await _repository.GetMedicineHistoryViewModel(patid);
+        }
+
+        #endregion
+
+
+        #region lab test prescription history view
+
+        [HttpGet("labHis/{patid}")]
+        public async Task<ActionResult<IEnumerable<DoctorLabTestPresHistoryVM>>> GetLabtestprescribedViewModel(int patid)
+        {
+            return await _repository.GetLabtestprescribedViewModel(patid);
+        }
+
         #endregion
     }
 }
