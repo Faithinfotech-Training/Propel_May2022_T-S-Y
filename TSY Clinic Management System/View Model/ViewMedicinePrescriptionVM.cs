@@ -17,7 +17,5 @@ namespace TSY_Clinic_Management_System.View_Model
         public DateTime? CreatedDate { get; set; }   //MedicinePrescription
         
 
-
-
     }
 }

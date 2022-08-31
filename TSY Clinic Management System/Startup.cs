@@ -34,11 +34,9 @@ namespace TSY_Clinic_Management_System
             services.AddDbContext<CLINIC_DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevelopConnection")));
             
             //Add services for Login Repository
-            services.AddScoped<ILoginRep, LoginRep>();
-            services.AddScoped<IMedicineRepo, MedicineRepo>();
-            services.AddScoped<IMedicinePrescriptionRepo, MedicinePrescriptionRepo>();
-            services.AddScoped<IMedViewRepo, MedicineViewRepo>();
-            services.AddScoped<IBillGeneration, BillRepository>();
+            
+            services.AddScoped<IPharmacistsRepository, PharmacistsRepository>();
+            services.AddScoped<IDoctorsRepo, DoctorsRepo>();
 
             //Adding services
             services.AddControllers().AddNewtonsoftJson(
