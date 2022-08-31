@@ -30,10 +30,12 @@ namespace TSY_Clinic_Management_System
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            services.AddDbContext<CLINIC_DBContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DevelopConnection")));
-
+            //Add Dependency injection for CLINIC_DBContext
+            services.AddDbContext<CLINIC_DBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevelopConnection")));
+            
+            //Add services for Login Repository
+            
+            services.AddScoped<IPharmacistsRepository, PharmacistsRepository>();
             services.AddScoped<IDoctorsRepo, DoctorsRepo>();
             services.AddScoped<IUsersRepository, UsersRepository>();
 

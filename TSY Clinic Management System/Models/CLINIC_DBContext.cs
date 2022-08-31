@@ -45,7 +45,7 @@ namespace TSY_Clinic_Management_System.Models
             if (!optionsBuilder.IsConfigured)
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-N2AHF6U;Initial Catalog=CLINIC_DB;Integrated Security=True");
+               // optionsBuilder.UseSqlServer("Data Source=DESKTOP-31E0Q8C\\SQLEXPRESS;Initial Catalog=CLINIC_DB;Integrated Security=True");
             }
         }
 
@@ -88,7 +88,7 @@ namespace TSY_Clinic_Management_System.Models
             modelBuilder.Entity<BillTable>(entity =>
             {
                 entity.HasKey(e => e.BillNumber)
-                    .HasName("PK__Bill_Tab__9D3029B92DE5423D");
+                    .HasName("PK__Bill_Tab__9D3029B99F36F433");
 
                 entity.ToTable("Bill_Table");
 
@@ -114,7 +114,7 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Patient)
                     .WithMany(p => p.BillTable)
                     .HasForeignKey(d => d.PatientId)
-                    .HasConstraintName("FK__Bill_Tabl__Patie__3493CFA7");
+                    .HasConstraintName("FK__Bill_Tabl__Patie__2EDAF651");
             });
 
             modelBuilder.Entity<BloodGroup>(entity =>
@@ -185,7 +185,7 @@ namespace TSY_Clinic_Management_System.Models
             modelBuilder.Entity<Labtest>(entity =>
             {
                 entity.HasKey(e => e.TestId)
-                    .HasName("PK__Labtest__B502D02231FED039");
+                    .HasName("PK__Labtest__B502D022C29B22DD");
 
                 entity.Property(e => e.TestId).HasColumnName("Test_Id");
 
@@ -437,7 +437,7 @@ namespace TSY_Clinic_Management_System.Models
             modelBuilder.Entity<ReportNote>(entity =>
             {
                 entity.HasKey(e => e.NoteId)
-                    .HasName("PK__ReportNo__F94B56A7C836BA6E");
+                    .HasName("PK__ReportNo__F94B56A7C554D3BE");
 
                 entity.Property(e => e.NoteId).HasColumnName("Note_Id");
 
@@ -568,12 +568,12 @@ namespace TSY_Clinic_Management_System.Models
                 entity.HasOne(d => d.Gender)
                     .WithMany(p => p.Staff)
                     .HasForeignKey(d => d.GenderId)
-                    .HasConstraintName("FK__Staff__Gender_Id__33D4B598");
+                    .HasConstraintName("FK__Staff__Gender_Id__25518C17");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Staff)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK__Staff__Role_Id__30C33EC3");
+                    .HasConstraintName("FK__Staff__Role_Id__2B0A656D");
             });
 
             modelBuilder.Entity<TestView>(entity =>
@@ -655,7 +655,7 @@ namespace TSY_Clinic_Management_System.Models
             modelBuilder.Entity<Users>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__Users__206D917083211E8C");
+                    .HasName("PK__Users__206D91707B2CB7D2");
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
